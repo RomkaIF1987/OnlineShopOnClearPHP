@@ -29,5 +29,9 @@ class DBController {
 		$rowcount = mysqli_num_rows($result);
 		return $rowcount;	
 	}
+
+    public function closeConnection()
+    {
+        $this->conn = null;
+    }
 }
-?>

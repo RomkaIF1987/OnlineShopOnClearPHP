@@ -6,8 +6,8 @@ if (!empty($_GET["action"])) {
     switch ($_GET["action"]) {
         case "add":
             if (!empty($_POST["quantity"])) {
-                $productByCode = $db_handle->runQuery("SELECT * FROM tblproduct WHERE code='" . $_GET["code"] . "'");
-                $itemArray = [$productByCode[0]["code"] => ['name' => $productByCode[0]["name"], 'code' => $productByCode[0]["code"], 'quantity' => $_POST["quantity"], 'price' => $productByCode[0]["price"], 'image' => $productByCode[0]["image"]]];
+                $productByCode = $db_handle->runQuery("SELECT * FROM product WHERE code='" . $_GET["code"] . "'");
+                $itemArray = [$productByCode[0]["code"] => ['name' => $productByCode[0]["name"], 'id' => $productByCode[0]["id"], 'quantity' => $_POST["quantity"], 'price' => $productByCode[0]["price"], 'unit' => $productByCode[0]["unit"], 'image' => $productByCode[0]["image"], 'code' => $productByCode[0]["code"]]];
 
                 if (!empty($_SESSION["cart_item"])) {
                     if (in_array($productByCode[0]["code"], array_keys($_SESSION["cart_item"]))) {
@@ -42,5 +42,5 @@ if (!empty($_GET["action"])) {
             break;
     }
 }
-?>
+
 
