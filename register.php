@@ -37,11 +37,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <?php
 if (!empty($response)) : ?>
-<div id="response" class="<?= $response["type"]; ?></div>
+    <div id="response" class="<?= $response["type"]; ?>"></div>
     <?= $response["message"]; ?>
 <?php endif; ?>
 <?php require_once 'partials/header.php' ?>
-<div style=" padding-top: 40px">
+<div class="pt40">
 <div class="container">
     <form class="form-horizontal" role="form" method="POST" action="">
         <div class="row">

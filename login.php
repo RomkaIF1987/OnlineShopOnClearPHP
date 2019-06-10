@@ -18,9 +18,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($count == 1) {
 
-        $ses_sql = $db_handle->runQuery("SELECT name, money FROM users WHERE email = '$user_email' ");
+        $ses_sql = $db_handle->runQuery("SELECT id, name, money FROM users WHERE email = '$user_email' ");
         $_SESSION['login_user'] = $ses_sql[0]['name'];
         $_SESSION['user_account'] = $ses_sql[0]['money'];
+        $_SESSION['user_id'] = $ses_sql[0]['id'];
 
         header("location: index.php");
     } else {
